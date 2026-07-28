@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class SplitWise {
+public class SplitWise
+{
 
     public static void main(String [] args)
     {
-        int numFriends=0;
+
         ArrayList<String> friendName =new ArrayList<>();
         boolean runninng =true;
         while(runninng) {
@@ -25,6 +26,7 @@ public class SplitWise {
                    {
                        break;
                    }
+
                     System.out.println("==SplitWiseApp-console==");
                     System.out.println("Track shared with friends");
                     System.out.println("");
@@ -33,7 +35,7 @@ public class SplitWise {
                     System.out.println("Enter payer name");
                     payerName = sc.nextLine();
                     friendName.add(payerName);
-                    numFriends+=1;
+                    int numFriends=friendName.size();
                     System.out.println("Enter a amount paid");
                     double totalAmount = sc.nextDouble();
                     String expenseline = "%s paid  ₹%.2f".formatted(payerName, totalAmount);
@@ -43,12 +45,9 @@ public class SplitWise {
                     System.out.println(expenseline);
                 }
                 case 2 ->
-                {
-                    System.out.println("Enter a friend name");
-                    String name=sc.nextLine();
-                    friendName.add(name);
-                    numFriends+=1;
-                }
+
+                   addfriend(sc,friendName);
+
                 case 3 ->
                 {
                     for (String name : friendName)
@@ -65,6 +64,12 @@ public class SplitWise {
                     System.out.println("Enter correct choice");
             }
         }
+    }
+    public static void addfriend(Scanner sc,ArrayList<String> friendName)
+    {
+        System.out.println("Enter a friend name");
+        String name=sc.nextLine();
+        friendName.add(name);
     }
 }
 
