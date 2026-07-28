@@ -1,20 +1,30 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class SplitWise {
 
     public static void main(String [] args)
     {
+        int numFriends=0;
+        ArrayList<String> friendName =new ArrayList<>();
         boolean runninng =true;
         while(runninng) {
             Scanner sc = new Scanner(System.in);
             System.out.println("==menu==");
             System.out.println("1 record");
+            System.out.println("2 Add friend");
+            System.out.println("3 List friends");
             System.out.println("0 exit");
             int choice = sc.nextInt();
             sc.nextLine();
+
             switch (choice) {
 
-                case 1 -> {
-
+                case 1 ->
+                {
+                   if(friendName.isEmpty())
+                   {
+                       break;
+                   }
                     System.out.println("==SplitWiseApp-console==");
                     System.out.println("Track shared with friends");
                     System.out.println("");
@@ -22,20 +32,29 @@ public class SplitWise {
                     System.out.println("Ready for more feauters its coming on next lesson");
                     System.out.println("Enter payer name");
                     payerName = sc.nextLine();
+                    friendName.add(payerName);
+                    numFriends+=1;
                     System.out.println("Enter a amount paid");
                     double totalAmount = sc.nextDouble();
                     String expenseline = "%s paid  ₹%.2f".formatted(payerName, totalAmount);
-                    System.out.println(expenseline);
-                    int numFriends = 3;
                     double perPresonShare = totalAmount / numFriends;
                     String shareline = "Each person should pay %f".formatted(perPresonShare);
                     System.out.println(shareline);
-//        System.out.println(payerName);
-//        System.out.println(numFriends);
-//        System.out.println(totalAmount);
-//        System.out.println(perPresonShare);
-//        System.out.println(payerName+" paid ₹"+totalAmount);
-//        System.out.println("Each person paid : ₹" + perPresonShare);
+                    System.out.println(expenseline);
+                }
+                case 2 ->
+                {
+                    System.out.println("Enter a friend name");
+                    String name=sc.nextLine();
+                    friendName.add(name);
+                    numFriends+=1;
+                }
+                case 3 ->
+                {
+                    for (String name : friendName)
+                    {
+                        System.out.println(name);
+                    }
                 }
                 case 0->
                 {
@@ -43,9 +62,7 @@ public class SplitWise {
                     System.out.println("Goodbye!");
                 }
                 default ->
-                {
                     System.out.println("Enter correct choice");
-                }
             }
         }
     }
