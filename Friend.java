@@ -1,12 +1,13 @@
 public class Friend {
 private final String Name;
-Friend(String name)
+public Friend(String name)
 {
    this.Name=name;
 }
-String getName()
+public String getName()
 {
-    return Name;
+
+    return this.Name;
 }
 
 }
