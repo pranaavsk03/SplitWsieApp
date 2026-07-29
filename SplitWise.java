@@ -6,7 +6,7 @@ public class SplitWise
     public static void main(String [] args)
     {
 
-        ArrayList<String> friendName =new ArrayList<>();
+        ArrayList<Friend> friendName =new ArrayList<>();
         boolean runninng =true;
         while(runninng) {
             Scanner sc = new Scanner(System.in);
@@ -34,7 +34,6 @@ public class SplitWise
                     System.out.println("Ready for more feauters its coming on next lesson");
                     System.out.println("Enter payer name");
                     payerName = sc.nextLine();
-                    friendName.add(payerName);
                     int numFriends=friendName.size();
                     System.out.println("Enter a amount paid");
                     double totalAmount = sc.nextDouble();
@@ -45,14 +44,17 @@ public class SplitWise
                     System.out.println(expenseline);
                 }
                 case 2 ->
-
-                   addfriend(sc,friendName);
+                   {
+                       System.out.println("Enter a friend name");
+                       String name=sc.nextLine();
+                   addfriend(friendName,name);
+                   }
 
                 case 3 ->
                 {
-                    for (String name : friendName)
+                    for (Friend friend : friendName)
                     {
-                        System.out.println(name);
+                        System.out.println(friend.getName());
                     }
                 }
                 case 0->
@@ -65,11 +67,9 @@ public class SplitWise
             }
         }
     }
-    public static void addfriend(Scanner sc,ArrayList<String> friendName)
+    public static void addfriend(ArrayList<Friend> friendName,String name)
     {
-        System.out.println("Enter a friend name");
-        String name=sc.nextLine();
-        friendName.add(name);
+        friendName.add(new Friend(name));
     }
 }
 
