@@ -1,4 +1,8 @@
+/**
+ * It's the package of entry of SplitWise
+ */
 package app;
+
 
 import model.Friend;
 import model.ExpenseLine;
@@ -7,10 +11,14 @@ import java.util.Scanner;
 public class SplitWise
 {
 
+    /**
+     * Main method  in SplitWise.java
+     */
     public static void main(String [] args)
     {
 
         ArrayList<Friend> friendName =new ArrayList<>();
+
         boolean runninng =true;
         while(runninng) {
             Scanner sc = new Scanner(System.in);
@@ -87,12 +95,27 @@ public class SplitWise
         friendName.add(friends);
         System.out.println(friendDisplay.addedmessage(friends));
     }
-   private static class friendDisplay
+
+    /**
+     * Static class which inside the SplitWise class to get and display the friends detail
+     */
+    private static class friendDisplay
    {
+       /**
+        *
+        * @param friend it was with parameter to store the value of friend
+        * @return it is the formatted line
+        */
        static String listLine(Friend friend)
        {
            return "%d %s".formatted(friend.getid(),friend.getName());
        }
+
+       /**
+        *
+        * @param friend it was with parameter friend to display the name and id
+        * @return its was the formatted line
+        */
        static String addedmessage(Friend friend)
        {
            return "Added %s (id %d)".formatted(friend.getName(),friend.getid());
