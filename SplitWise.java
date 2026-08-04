@@ -34,11 +34,12 @@ public class SplitWise
                     System.out.println("Ready for more feauters its coming on next lesson");
                     System.out.println("Enter payer name");
                     payerName = sc.nextLine();
-                    int numFriends=friendName.size();
                     System.out.println("Enter a amount paid");
                     double totalAmount = sc.nextDouble();
-                    String expenseline = "%s paid  ₹%.2f".formatted(payerName, totalAmount);
-                    double perPresonShare = totalAmount / numFriends;
+                    int numFriends=friendName.size();
+                  Expense expense=new Expense(payerName,totalAmount);
+                    String expenseline = "%s paid  ₹%.2f".formatted(expense.getPayerName(), expense.getAmount());
+                    double perPresonShare = expense.getAmount() / numFriends;
                     String shareline = "Each person should pay %f".formatted(perPresonShare);
                     System.out.println(shareline);
                     System.out.println(expenseline);
