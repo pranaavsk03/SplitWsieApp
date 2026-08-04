@@ -65,7 +65,7 @@ public class SplitWise
                     {
                         for (Friend friend : friendName)
                         {
-                            System.out.printf("%d %s \n",friend.getid(),friend.getName() );
+                            System.out.println(friendDisplay.listLine(friend) );
 
                         }
                     }
@@ -83,8 +83,21 @@ public class SplitWise
     }
     public static void addfriend(ArrayList<Friend> friendName,String name)
     {
-        friendName.add(new Friend(name));
+        Friend friends=new Friend(name);
+        friendName.add(friends);
+        System.out.println(friendDisplay.addedmessage(friends));
     }
+   private static class friendDisplay
+   {
+       static String listLine(Friend friend)
+       {
+           return "%d %s".formatted(friend.getid(),friend.getName());
+       }
+       static String addedmessage(Friend friend)
+       {
+           return "Added %s (id %d)".formatted(friend.getName(),friend.getid());
+       }
+   }
 }
 
 
