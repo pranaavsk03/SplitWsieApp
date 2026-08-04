@@ -1,3 +1,7 @@
+package app;
+
+import model.Friend;
+import model.ExpenseLine;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class SplitWise

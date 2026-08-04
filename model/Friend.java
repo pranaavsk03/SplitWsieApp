@@ -1,3 +1,5 @@
+package model;
+
 public class Friend {
 private final String Name;
 private static int lastId=0;
