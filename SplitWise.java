@@ -53,10 +53,19 @@ public class SplitWise
 
                 case 3 ->
                 {
-                    for (Friend friend : friendName)
+                    if(friendName.isEmpty())
                     {
-                        System.out.println(friend.getName());
+                        System.out.println("No friend yet");
                     }
+                    else
+                    {
+                        for (Friend friend : friendName)
+                        {
+                            System.out.printf("%d %s \n",friend.getid(),friend.getName() );
+
+                        }
+                    }
+
                 }
                 case 0->
                 {
